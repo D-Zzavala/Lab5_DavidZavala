@@ -1,5 +1,8 @@
 
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.awt.Color;
+import java.awt.image.ColorModel;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Pais {
@@ -48,10 +51,10 @@ public class Pais {
     public void setBandera(Color Bandera) {
         this.Bandera = Bandera;
     }
-
+    
     @Override
     public String toString() {
-        return "Pais: " + Nombre + ", Con el Himno:" + Himno + ", Fundado en:" + Fundacion + ", Con Bandera Color: " + Bandera;
+        return Nombre;
     }
     
     

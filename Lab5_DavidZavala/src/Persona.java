@@ -1,8 +1,7 @@
 public class Persona {
     private String Nacionalidad, Nombre, Apellido, Genero, Vocacion;
     private int Edad;
-    private boolean Titulo;
-    private boolean Contagiado;
+    private boolean Titulo, Contagiado;
 
     public Persona() {
     }
@@ -81,12 +80,22 @@ public class Persona {
     public void setContagiado(boolean Contagiado) {
         this.Contagiado = Contagiado;
     }
-
-    @Override
-    public String toString() {
-        return "La Persona"+ Nombre +" "+ Apellido + ", de " + Nacionalidad +", de:" + Edad +" años de edad, Genero:" + Genero + ", con Vocacion de:" + Vocacion + ", y Titulo:" + Titulo + ", resultó: " + Contagiado + "para la prueba del Covid-19}";
+    
+    public String StringContagiado(boolean Contagiado) {
+    String ret = null;
+        if (Contagiado==true) {
+            ret = "Positivo";
+        } else if (Contagiado==false) {
+            ret = "Negativo";
+        }
+    return ret;
     }
     
-    
+    @Override
+    public String toString() {
+        return Nombre +" "+ Apellido + ", " + Edad +" años de edad, Genero:" + Genero + ", resultó: " + StringContagiado(Contagiado) + "para la prueba del Covid-19}";
+    }
+  
+     
     
 }

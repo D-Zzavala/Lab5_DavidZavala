@@ -1,6 +1,8 @@
 
 import java.awt.Color;
+import javax.swing.DefaultListModel;
 import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -35,12 +37,12 @@ public class Frame extends javax.swing.JFrame {
         JT_PersonaApellido = new javax.swing.JTextField();
         JT_PersonaNacionalidad = new javax.swing.JTextField();
         JFT_Edad = new javax.swing.JFormattedTextField();
+        JChBo_Titulo = new java.awt.Checkbox();
         JCB_Vocacion = new javax.swing.JComboBox<>();
         JRB_Masculino = new javax.swing.JRadioButton();
         JRB_Femenino = new javax.swing.JRadioButton();
         JRB_Positivo = new javax.swing.JRadioButton();
         JRB_Negativo = new javax.swing.JRadioButton();
-        checkbox1 = new java.awt.Checkbox();
         JB_AddPersona = new javax.swing.JButton();
         JB_Home1 = new javax.swing.JButton();
         JB_Exit1 = new javax.swing.JButton();
@@ -99,7 +101,7 @@ public class Frame extends javax.swing.JFrame {
         JB_Exit4 = new javax.swing.JButton();
         JB_Home4 = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        JList_Paises = new javax.swing.JList<>();
         jScrollPane6 = new javax.swing.JScrollPane();
         JTree_Paises = new javax.swing.JTree();
         jLabel12 = new javax.swing.JLabel();
@@ -132,27 +134,31 @@ public class Frame extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         AddPersona.getContentPane().add(JFT_Edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 30, -1));
+        AddPersona.getContentPane().add(JChBo_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, -1, -1));
 
-        JCB_Vocacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Técnico", "Agricultor", "Oficinista", " " }));
+        JCB_Vocacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Técnico", "Agricultor", "Oficinista" }));
         JCB_Vocacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCB_VocacionActionPerformed(evt);
             }
         });
-        AddPersona.getContentPane().add(JCB_Vocacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
+        AddPersona.getContentPane().add(JCB_Vocacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, -1, -1));
 
+        JBG_Sexo.add(JRB_Masculino);
         JRB_Masculino.setText("Masculino");
         AddPersona.getContentPane().add(JRB_Masculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, -1, -1));
 
+        JBG_Sexo.add(JRB_Femenino);
         JRB_Femenino.setText("Femenino");
         AddPersona.getContentPane().add(JRB_Femenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
 
+        JBG_Covid.add(JRB_Positivo);
         JRB_Positivo.setText("Positivo");
         AddPersona.getContentPane().add(JRB_Positivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, -1, -1));
 
+        JBG_Covid.add(JRB_Negativo);
         JRB_Negativo.setText("Negativo");
         AddPersona.getContentPane().add(JRB_Negativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, -1, -1));
-        AddPersona.getContentPane().add(checkbox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
 
         JB_AddPersona.setText("Agregar");
         JB_AddPersona.addActionListener(new java.awt.event.ActionListener() {
@@ -195,16 +201,16 @@ public class Frame extends javax.swing.JFrame {
         AddPersona.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
 
         jLabel17.setText("Vocacion");
-        AddPersona.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
+        AddPersona.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
 
         jLabel18.setText("Titulo");
-        AddPersona.getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 336, -1, 20));
+        AddPersona.getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, 20));
 
         jLabel19.setText("Covid-19");
         AddPersona.getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, -1));
 
         jLabel25.setText("Universitario");
-        AddPersona.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, -1, -1));
+        AddPersona.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, -1, -1));
 
         jLabel27.setText("Apellido");
         AddPersona.getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
@@ -222,11 +228,7 @@ public class Frame extends javax.swing.JFrame {
 
         jScrollPane5.setPreferredSize(new java.awt.Dimension(640, 130));
 
-        JList_Mujeres.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        JList_Mujeres.setModel(new DefaultListModel());
         jScrollPane5.setViewportView(JList_Mujeres);
 
         JPan_Mujeres.add(jScrollPane5);
@@ -235,11 +237,7 @@ public class Frame extends javax.swing.JFrame {
 
         jScrollPane4.setPreferredSize(new java.awt.Dimension(640, 130));
 
-        JList_Hombres.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        JList_Hombres.setModel(new DefaultListModel());
         jScrollPane4.setViewportView(JList_Hombres);
 
         JPan_Hombres.add(jScrollPane4);
@@ -316,7 +314,7 @@ public class Frame extends javax.swing.JFrame {
         AddPais.getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, -1, -1));
 
         jLabel24.setText("Fecha de fundación");
-        AddPais.getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, -1, -1));
+        AddPais.getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, -1));
         AddPais.getContentPane().add(JDC_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 150, -1));
         AddPais.getContentPane().add(JT_PaisesName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 90, -1));
         AddPais.getContentPane().add(JT_himno, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 90, -1));
@@ -330,6 +328,11 @@ public class Frame extends javax.swing.JFrame {
         AddPais.getContentPane().add(JB_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 90, 30));
 
         JB_AddPaises.setText("Agregar");
+        JB_AddPaises.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_AddPaisesActionPerformed(evt);
+            }
+        });
         AddPais.getContentPane().add(JB_AddPaises, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, 120, 60));
 
         JB_Exit.setText("X");
@@ -379,14 +382,10 @@ public class Frame extends javax.swing.JFrame {
         });
         ListPais.getContentPane().add(JB_Home4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 40));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane7.setViewportView(jList1);
+        JList_Paises.setModel(new DefaultListModel());
+        jScrollPane7.setViewportView(JList_Paises);
 
-        ListPais.getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 320, -1));
+        ListPais.getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 300, -1));
 
         jScrollPane6.setViewportView(JTree_Paises);
 
@@ -559,10 +558,78 @@ public class Frame extends javax.swing.JFrame {
     private void JB_Exit4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_Exit4ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_JB_Exit4ActionPerformed
+    private boolean Contagio() {
+        boolean ret = false;
+        if (JRB_Positivo.isSelected()) {
+            ret = true;
+        }
+        return ret;
+    }
+
+    private boolean Titulo() {
+        boolean ret = false;
+        if (JChBo_Titulo.isEnabled()) {
+            ret = true;
+        }
+        return ret;
+    }
+
+    private String sexo() {
+        String ret = null;
+        if (JRB_Femenino.isSelected()) {
+            ret = "Femenino";
+        } else if (JRB_Masculino.isSelected()) {
+            ret = "Masculino";
+        }
+        return ret;
+    }
+
+    private void ResetPersona() {
+        this.JT_PersonaNacionalidad.setText("");
+        this.JT_PersonaNombre.setText("");
+        this.JT_PersonaApellido.setText("");
+        this.JRB_Femenino.setSelected(false);
+        this.JRB_Masculino.setSelected(false);
+        this.JRB_Positivo.setSelected(false);
+        this.JRB_Negativo.setSelected(false);
+        this.JChBo_Titulo.setState(false);
+        this.JCB_Vocacion.setSelectedIndex(0);
+        this.JFT_Edad.setText("");
+    }
 
     private void JB_AddPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AddPersonaActionPerformed
-        //new Persona(Nacionalidad, Nombre, Apellido, Genero, Vocacion, titulo, WIDTH, rootPaneCheckingEnabled4);
+        DefaultListModel ListModelMujeres = (DefaultListModel) JList_Mujeres.getModel();
+        DefaultListModel ListModelHombres = (DefaultListModel) JList_Hombres.getModel();
+        try {
+            if (JRB_Femenino.isSelected()) {
+                ListModelMujeres.addElement(new Persona(JT_PersonaNacionalidad.getText(), JT_PersonaNombre.getText(), JT_PersonaApellido.getText(), sexo(), JCB_Vocacion.getSelectedItem().toString(), Titulo(), Integer.parseInt(JFT_Edad.getText()), Contagio()));
+            } else if (JRB_Masculino.isSelected()) {
+                ListModelHombres.addElement(new Persona(JT_PersonaNacionalidad.getText(), JT_PersonaNombre.getText(), JT_PersonaApellido.getText(), sexo(), JCB_Vocacion.getSelectedItem().toString(), Titulo(), Integer.parseInt(JFT_Edad.getText()), Contagio()));
+            }
+            JOptionPane.showMessageDialog(this, "Agregado exitosamente.");
+            ResetPersona();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error");
+        }
     }//GEN-LAST:event_JB_AddPersonaActionPerformed
+
+    private void ResetPais() {
+        this.JT_PaisesName.setText("");
+        this.JT_himno.setText("");
+        this.JB_Color.setForeground(Color.WHITE);
+        this.JDC_Fecha.setDateFormatString("");
+    }
+
+    private void JB_AddPaisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AddPaisesActionPerformed
+        DefaultListModel ListModelPais = (DefaultListModel) JList_Paises.getModel();
+        try {
+            ListModelPais.addElement(new Pais(JT_PaisesName.getText(), JT_himno.getText(), JDC_Fecha.getDate(), JB_Color.getForeground()));
+            JOptionPane.showMessageDialog(this, "Agregado exitosamente.");
+            ResetPais();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error");
+        }
+    }//GEN-LAST:event_JB_AddPaisesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -617,11 +684,13 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton JB_Home2;
     private javax.swing.JButton JB_Home4;
     private javax.swing.JComboBox<String> JCB_Vocacion;
+    private java.awt.Checkbox JChBo_Titulo;
     private com.toedter.calendar.JDateChooser JDC_Fecha;
     private javax.swing.JFormattedTextField JFT_Edad;
     private javax.swing.JLabel JL_APerFondo;
     private javax.swing.JList<String> JList_Hombres;
     private javax.swing.JList<String> JList_Mujeres;
+    private javax.swing.JList<String> JList_Paises;
     private javax.swing.JMenuBar JMB_Frame;
     private javax.swing.JMenu JM_Paises;
     private javax.swing.JMenuItem JM_PaisesAdd;
@@ -650,7 +719,6 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JDialog ListPais;
     private javax.swing.JDialog ListPersona;
     private javax.swing.JLabel Titulo;
-    private java.awt.Checkbox checkbox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -677,7 +745,6 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
