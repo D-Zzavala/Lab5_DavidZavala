@@ -2,14 +2,11 @@
 import java.awt.Color;
 import javax.swing.JColorChooser;
 
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author 50431
@@ -36,9 +33,9 @@ public class Frame extends javax.swing.JFrame {
         AddPersona = new javax.swing.JDialog();
         JT_PersonaNombre = new javax.swing.JTextField();
         JT_PersonaApellido = new javax.swing.JTextField();
+        JT_PersonaNacionalidad = new javax.swing.JTextField();
         JFT_Edad = new javax.swing.JFormattedTextField();
         JCB_Vocacion = new javax.swing.JComboBox<>();
-        JCB_PersonaPais = new javax.swing.JComboBox<>();
         JRB_Masculino = new javax.swing.JRadioButton();
         JRB_Femenino = new javax.swing.JRadioButton();
         JRB_Positivo = new javax.swing.JRadioButton();
@@ -55,8 +52,8 @@ public class Frame extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         JL_APerFondo = new javax.swing.JLabel();
         ListPersona = new javax.swing.JDialog();
@@ -99,8 +96,10 @@ public class Frame extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         ListPais = new javax.swing.JDialog();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        JB_Exit4 = new javax.swing.JButton();
+        JB_Home4 = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         jScrollPane6 = new javax.swing.JScrollPane();
         JTree_Paises = new javax.swing.JTree();
         jLabel12 = new javax.swing.JLabel();
@@ -123,8 +122,9 @@ public class Frame extends javax.swing.JFrame {
         AddPersona.setUndecorated(true);
         AddPersona.setResizable(false);
         AddPersona.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        AddPersona.getContentPane().add(JT_PersonaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 90, -1));
-        AddPersona.getContentPane().add(JT_PersonaApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 90, -1));
+        AddPersona.getContentPane().add(JT_PersonaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 90, -1));
+        AddPersona.getContentPane().add(JT_PersonaApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 90, -1));
+        AddPersona.getContentPane().add(JT_PersonaNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 90, -1));
 
         try {
             JFT_Edad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
@@ -141,8 +141,6 @@ public class Frame extends javax.swing.JFrame {
         });
         AddPersona.getContentPane().add(JCB_Vocacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
 
-        AddPersona.getContentPane().add(JCB_PersonaPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 140, -1));
-
         JRB_Masculino.setText("Masculino");
         AddPersona.getContentPane().add(JRB_Masculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, -1, -1));
 
@@ -157,12 +155,27 @@ public class Frame extends javax.swing.JFrame {
         AddPersona.getContentPane().add(checkbox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
 
         JB_AddPersona.setText("Agregar");
+        JB_AddPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_AddPersonaActionPerformed(evt);
+            }
+        });
         AddPersona.getContentPane().add(JB_AddPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 540, 100, 50));
 
         JB_Home1.setText("Home");
+        JB_Home1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_Home1ActionPerformed(evt);
+            }
+        });
         AddPersona.getContentPane().add(JB_Home1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 70, 40));
 
         JB_Exit1.setText("X");
+        JB_Exit1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_Exit1ActionPerformed(evt);
+            }
+        });
         AddPersona.getContentPane().add(JB_Exit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
 
         jLabel8.setFont(new java.awt.Font("DialogInput", 1, 48)); // NOI18N
@@ -170,10 +183,10 @@ public class Frame extends javax.swing.JFrame {
         AddPersona.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 220, 80));
 
         jLabel6.setText("Nombre");
-        AddPersona.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
+        AddPersona.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
-        jLabel14.setText("Apellido");
-        AddPersona.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+        jLabel14.setText("Nacionalidad");
+        AddPersona.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
 
         jLabel15.setText("Edad");
         AddPersona.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, -1));
@@ -190,11 +203,11 @@ public class Frame extends javax.swing.JFrame {
         jLabel19.setText("Covid-19");
         AddPersona.getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, -1));
 
-        jLabel20.setText("País");
-        AddPersona.getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
-
         jLabel25.setText("Universitario");
         AddPersona.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, -1, -1));
+
+        jLabel27.setText("Apellido");
+        AddPersona.getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UN_emblem_gold.svg.png"))); // NOI18N
         jLabel1.setText("Nombre");
@@ -259,9 +272,19 @@ public class Frame extends javax.swing.JFrame {
         ListPersona.getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 360, 240));
 
         JB_Home2.setText("Home");
+        JB_Home2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_Home2ActionPerformed(evt);
+            }
+        });
         ListPersona.getContentPane().add(JB_Home2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 40));
 
         JB_Exit2.setText("X");
+        JB_Exit2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_Exit2ActionPerformed(evt);
+            }
+        });
         ListPersona.getContentPane().add(JB_Exit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
 
         jLabel9.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
@@ -310,9 +333,19 @@ public class Frame extends javax.swing.JFrame {
         AddPais.getContentPane().add(JB_AddPaises, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, 120, 60));
 
         JB_Exit.setText("X");
+        JB_Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_ExitActionPerformed(evt);
+            }
+        });
         AddPais.getContentPane().add(JB_Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
 
         JB_Home.setText("Home");
+        JB_Home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_HomeActionPerformed(evt);
+            }
+        });
         AddPais.getContentPane().add(JB_Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 40));
 
         jLabel10.setFont(new java.awt.Font("DialogInput", 1, 48)); // NOI18N
@@ -330,11 +363,30 @@ public class Frame extends javax.swing.JFrame {
         ListPais.setResizable(false);
         ListPais.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton11.setText("X");
-        ListPais.getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
+        JB_Exit4.setText("X");
+        JB_Exit4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_Exit4ActionPerformed(evt);
+            }
+        });
+        ListPais.getContentPane().add(JB_Exit4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
 
-        jButton12.setText("Home");
-        ListPais.getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 40));
+        JB_Home4.setText("Home");
+        JB_Home4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_Home4ActionPerformed(evt);
+            }
+        });
+        ListPais.getContentPane().add(JB_Home4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 40));
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane7.setViewportView(jList1);
+
+        ListPais.getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 320, -1));
 
         jScrollPane6.setViewportView(JTree_Paises);
 
@@ -346,7 +398,7 @@ public class Frame extends javax.swing.JFrame {
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UN_emblem_gold.svg.png"))); // NOI18N
         jLabel13.setText("Nombre");
-        ListPais.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 290, 290));
+        ListPais.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 290, 290));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/f73ef9ec5882eab32771edb39399765f.jpg"))); // NOI18N
         ListPais.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 600));
@@ -372,11 +424,26 @@ public class Frame extends javax.swing.JFrame {
         JMB_Frame.setBorder(null);
 
         JM_Personas.setText("Personas");
+        JM_Personas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_PersonasActionPerformed(evt);
+            }
+        });
 
         JM_PersonasAdd.setText("Agregar");
+        JM_PersonasAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_PersonasAddActionPerformed(evt);
+            }
+        });
         JM_Personas.add(JM_PersonasAdd);
 
         JM_PersonasList.setText("Archivo");
+        JM_PersonasList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_PersonasListActionPerformed(evt);
+            }
+        });
         JM_Personas.add(JM_PersonasList);
         JM_Personas.add(jSeparator1);
 
@@ -385,9 +452,19 @@ public class Frame extends javax.swing.JFrame {
         JM_Paises.setText("Paises");
 
         JM_PaisesAdd.setText("Agregar");
+        JM_PaisesAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_PaisesAddActionPerformed(evt);
+            }
+        });
         JM_Paises.add(JM_PaisesAdd);
 
         JM_PaisesList.setText("Archivo");
+        JM_PaisesList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_PaisesListActionPerformed(evt);
+            }
+        });
         JM_Paises.add(JM_PaisesList);
 
         JMB_Frame.add(JM_Paises);
@@ -404,6 +481,88 @@ public class Frame extends javax.swing.JFrame {
     private void JB_ColorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ColorMouseClicked
         JB_Color.setForeground(JColorChooser.showDialog(this, "Elija el Color De la bandera", Color.WHITE));
     }//GEN-LAST:event_JB_ColorMouseClicked
+
+    private void JM_PersonasAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PersonasAddActionPerformed
+        AddPersona.setVisible(true);
+        AddPersona.pack();
+        AddPersona.setLocationRelativeTo(this);
+        this.setVisible(false);
+    }//GEN-LAST:event_JM_PersonasAddActionPerformed
+
+    private void JM_PersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PersonasActionPerformed
+        ListPersona.setVisible(true);
+        ListPersona.pack();
+        ListPersona.setLocationRelativeTo(this);
+        this.setVisible(false);    }//GEN-LAST:event_JM_PersonasActionPerformed
+
+    private void JM_PaisesAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PaisesAddActionPerformed
+        AddPais.setVisible(true);
+        AddPais.pack();
+        AddPais.setLocationRelativeTo(this);
+        this.setVisible(false);
+    }//GEN-LAST:event_JM_PaisesAddActionPerformed
+
+    private void JM_PaisesListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PaisesListActionPerformed
+        ListPais.setVisible(true);
+        ListPais.pack();
+        ListPais.setLocationRelativeTo(this);
+        this.setVisible(false);
+    }//GEN-LAST:event_JM_PaisesListActionPerformed
+
+    private void JB_Home1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_Home1ActionPerformed
+        this.setVisible(true);
+        this.pack();
+        this.setLocationRelativeTo(null);
+        AddPersona.setVisible(false);
+    }//GEN-LAST:event_JB_Home1ActionPerformed
+
+    private void JB_Home2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_Home2ActionPerformed
+        this.setVisible(true);
+        this.pack();
+        this.setLocationRelativeTo(null);
+        ListPersona.setVisible(false);
+    }//GEN-LAST:event_JB_Home2ActionPerformed
+
+    private void JB_HomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_HomeActionPerformed
+        this.setVisible(true);
+        this.pack();
+        this.setLocationRelativeTo(null);
+        AddPais.setVisible(false);
+    }//GEN-LAST:event_JB_HomeActionPerformed
+
+    private void JB_Home4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_Home4ActionPerformed
+        this.setVisible(true);
+        this.pack();
+        this.setLocationRelativeTo(null);
+        ListPais.setVisible(false);
+    }//GEN-LAST:event_JB_Home4ActionPerformed
+
+    private void JM_PersonasListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PersonasListActionPerformed
+        ListPersona.setVisible(true);
+        ListPersona.pack();
+        ListPersona.setLocationRelativeTo(this);
+        this.setVisible(false);
+    }//GEN-LAST:event_JM_PersonasListActionPerformed
+
+    private void JB_Exit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_Exit1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_JB_Exit1ActionPerformed
+
+    private void JB_Exit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_Exit2ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_JB_Exit2ActionPerformed
+
+    private void JB_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_JB_ExitActionPerformed
+
+    private void JB_Exit4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_Exit4ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_JB_Exit4ActionPerformed
+
+    private void JB_AddPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AddPersonaActionPerformed
+        //new Persona(Nacionalidad, Nombre, Apellido, Genero, Vocacion, titulo, WIDTH, rootPaneCheckingEnabled4);
+    }//GEN-LAST:event_JB_AddPersonaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -452,10 +611,11 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton JB_Exit;
     private javax.swing.JButton JB_Exit1;
     private javax.swing.JButton JB_Exit2;
+    private javax.swing.JButton JB_Exit4;
     private javax.swing.JButton JB_Home;
     private javax.swing.JButton JB_Home1;
     private javax.swing.JButton JB_Home2;
-    private javax.swing.JComboBox<String> JCB_PersonaPais;
+    private javax.swing.JButton JB_Home4;
     private javax.swing.JComboBox<String> JCB_Vocacion;
     private com.toedter.calendar.JDateChooser JDC_Fecha;
     private javax.swing.JFormattedTextField JFT_Edad;
@@ -480,6 +640,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JRadioButton JRB_Positivo;
     private javax.swing.JTextField JT_PaisesName;
     private javax.swing.JTextField JT_PersonaApellido;
+    private javax.swing.JTextField JT_PersonaNacionalidad;
     private javax.swing.JTextField JT_PersonaNombre;
     private javax.swing.JTextField JT_himno;
     private javax.swing.JTree JTree_Negativas;
@@ -490,8 +651,6 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JDialog ListPersona;
     private javax.swing.JLabel Titulo;
     private java.awt.Checkbox checkbox1;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -504,13 +663,13 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -518,12 +677,14 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
