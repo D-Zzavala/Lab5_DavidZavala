@@ -1,3 +1,9 @@
+
+import java.awt.Color;
+import javax.swing.JColorChooser;
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -28,25 +34,80 @@ public class Frame extends javax.swing.JFrame {
     private void initComponents() {
 
         AddPersona = new javax.swing.JDialog();
-        jButton1 = new javax.swing.JButton();
+        JT_PersonaNombre = new javax.swing.JTextField();
+        JT_PersonaApellido = new javax.swing.JTextField();
+        JFT_Edad = new javax.swing.JFormattedTextField();
+        JCB_Vocacion = new javax.swing.JComboBox<>();
+        JCB_PersonaPais = new javax.swing.JComboBox<>();
+        JRB_Masculino = new javax.swing.JRadioButton();
+        JRB_Femenino = new javax.swing.JRadioButton();
+        JRB_Positivo = new javax.swing.JRadioButton();
+        JRB_Negativo = new javax.swing.JRadioButton();
+        checkbox1 = new java.awt.Checkbox();
+        JB_AddPersona = new javax.swing.JButton();
+        JB_Home1 = new javax.swing.JButton();
+        JB_Exit1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         JL_APerFondo = new javax.swing.JLabel();
         ListPersona = new javax.swing.JDialog();
-        jButton2 = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        JPan_Mujeres = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        JList_Mujeres = new javax.swing.JList<>();
+        JPan_Hombres = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        JList_Hombres = new javax.swing.JList<>();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        JPan_Todas = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTree_Todas = new javax.swing.JTree();
+        JPan_Positivas = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        JTree_Positivas = new javax.swing.JTree();
+        JPan_Negativas = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JTree_Negativas = new javax.swing.JTree();
+        JB_Home2 = new javax.swing.JButton();
+        JB_Exit2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         AddPais = new javax.swing.JDialog();
-        jButton3 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        JDC_Fecha = new com.toedter.calendar.JDateChooser();
+        JT_PaisesName = new javax.swing.JTextField();
+        JT_himno = new javax.swing.JTextField();
+        JB_Color = new javax.swing.JButton();
+        JB_AddPaises = new javax.swing.JButton();
+        JB_Exit = new javax.swing.JButton();
+        JB_Home = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         ListPais = new javax.swing.JDialog();
-        jButton4 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        JTree_Paises = new javax.swing.JTree();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        JBG_Sexo = new javax.swing.ButtonGroup();
+        JBG_Covid = new javax.swing.ButtonGroup();
         Titulo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
@@ -62,18 +123,78 @@ public class Frame extends javax.swing.JFrame {
         AddPersona.setUndecorated(true);
         AddPersona.setResizable(false);
         AddPersona.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        AddPersona.getContentPane().add(JT_PersonaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 90, -1));
+        AddPersona.getContentPane().add(JT_PersonaApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 90, -1));
 
-        jButton1.setText("Agregar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        try {
+            JFT_Edad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        AddPersona.getContentPane().add(JFT_Edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 30, -1));
+
+        JCB_Vocacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Técnico", "Agricultor", "Oficinista", " " }));
+        JCB_Vocacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JCB_VocacionActionPerformed(evt);
             }
         });
-        AddPersona.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, 120, 60));
+        AddPersona.getContentPane().add(JCB_Vocacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
+
+        AddPersona.getContentPane().add(JCB_PersonaPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 140, -1));
+
+        JRB_Masculino.setText("Masculino");
+        AddPersona.getContentPane().add(JRB_Masculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, -1, -1));
+
+        JRB_Femenino.setText("Femenino");
+        AddPersona.getContentPane().add(JRB_Femenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
+
+        JRB_Positivo.setText("Positivo");
+        AddPersona.getContentPane().add(JRB_Positivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, -1, -1));
+
+        JRB_Negativo.setText("Negativo");
+        AddPersona.getContentPane().add(JRB_Negativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, -1, -1));
+        AddPersona.getContentPane().add(checkbox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
+
+        JB_AddPersona.setText("Agregar");
+        AddPersona.getContentPane().add(JB_AddPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 540, 100, 50));
+
+        JB_Home1.setText("Home");
+        AddPersona.getContentPane().add(JB_Home1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 70, 40));
+
+        JB_Exit1.setText("X");
+        AddPersona.getContentPane().add(JB_Exit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
 
         jLabel8.setFont(new java.awt.Font("DialogInput", 1, 48)); // NOI18N
         jLabel8.setText("Persona");
         AddPersona.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 220, 80));
+
+        jLabel6.setText("Nombre");
+        AddPersona.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
+
+        jLabel14.setText("Apellido");
+        AddPersona.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+
+        jLabel15.setText("Edad");
+        AddPersona.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, -1));
+
+        jLabel16.setText("Sexo");
+        AddPersona.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
+
+        jLabel17.setText("Vocacion");
+        AddPersona.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
+
+        jLabel18.setText("Titulo");
+        AddPersona.getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 336, -1, 20));
+
+        jLabel19.setText("Covid-19");
+        AddPersona.getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, -1));
+
+        jLabel20.setText("País");
+        AddPersona.getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
+
+        jLabel25.setText("Universitario");
+        AddPersona.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UN_emblem_gold.svg.png"))); // NOI18N
         jLabel1.setText("Nombre");
@@ -86,17 +207,70 @@ public class Frame extends javax.swing.JFrame {
         ListPersona.setResizable(false);
         ListPersona.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setText("Agregar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        ListPersona.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, 120, 60));
+        jScrollPane5.setPreferredSize(new java.awt.Dimension(640, 130));
 
-        jLabel9.setFont(new java.awt.Font("DialogInput", 1, 48)); // NOI18N
-        jLabel9.setText("Persona");
-        ListPersona.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 220, 80));
+        JList_Mujeres.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane5.setViewportView(JList_Mujeres);
+
+        JPan_Mujeres.add(jScrollPane5);
+
+        jTabbedPane1.addTab("Mujeres", JPan_Mujeres);
+
+        jScrollPane4.setPreferredSize(new java.awt.Dimension(640, 130));
+
+        JList_Hombres.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane4.setViewportView(JList_Hombres);
+
+        JPan_Hombres.add(jScrollPane4);
+
+        jTabbedPane1.addTab("Hombres", JPan_Hombres);
+
+        ListPersona.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 650, 170));
+
+        JTree_Todas.setPreferredSize(new java.awt.Dimension(350, 150));
+        jScrollPane1.setViewportView(JTree_Todas);
+
+        JPan_Todas.add(jScrollPane1);
+
+        jTabbedPane2.addTab("Todas", JPan_Todas);
+
+        JTree_Positivas.setPreferredSize(new java.awt.Dimension(350, 150));
+        jScrollPane3.setViewportView(JTree_Positivas);
+
+        JPan_Positivas.add(jScrollPane3);
+
+        jTabbedPane2.addTab("Positivas", JPan_Positivas);
+
+        JTree_Negativas.setPreferredSize(new java.awt.Dimension(350, 150));
+        jScrollPane2.setViewportView(JTree_Negativas);
+
+        JPan_Negativas.add(jScrollPane2);
+
+        jTabbedPane2.addTab("Negativas", JPan_Negativas);
+
+        ListPersona.getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 360, 240));
+
+        JB_Home2.setText("Home");
+        ListPersona.getContentPane().add(JB_Home2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 40));
+
+        JB_Exit2.setText("X");
+        ListPersona.getContentPane().add(JB_Exit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
+
+        jLabel9.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
+        jLabel9.setText("Pruebas");
+        ListPersona.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 100, 30));
+
+        jLabel26.setFont(new java.awt.Font("DialogInput", 1, 48)); // NOI18N
+        jLabel26.setText("Persona");
+        ListPersona.getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 220, 80));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UN_emblem_gold.svg.png"))); // NOI18N
         jLabel7.setText("Nombre");
@@ -109,13 +283,37 @@ public class Frame extends javax.swing.JFrame {
         AddPais.setResizable(false);
         AddPais.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton3.setText("Agregar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+        jLabel21.setText("Himno Nacional");
+        AddPais.getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+
+        jLabel22.setText("Nombre");
+        AddPais.getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
+
+        jLabel23.setText("Color de bandera");
+        AddPais.getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, -1, -1));
+
+        jLabel24.setText("Fecha de fundación");
+        AddPais.getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, -1, -1));
+        AddPais.getContentPane().add(JDC_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 150, -1));
+        AddPais.getContentPane().add(JT_PaisesName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 90, -1));
+        AddPais.getContentPane().add(JT_himno, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 90, -1));
+
+        JB_Color.setText("Color");
+        JB_Color.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_ColorMouseClicked(evt);
             }
         });
-        AddPais.getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, 120, 60));
+        AddPais.getContentPane().add(JB_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 90, 30));
+
+        JB_AddPaises.setText("Agregar");
+        AddPais.getContentPane().add(JB_AddPaises, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, 120, 60));
+
+        JB_Exit.setText("X");
+        AddPais.getContentPane().add(JB_Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
+
+        JB_Home.setText("Home");
+        AddPais.getContentPane().add(JB_Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 40));
 
         jLabel10.setFont(new java.awt.Font("DialogInput", 1, 48)); // NOI18N
         jLabel10.setText("Paises");
@@ -132,13 +330,15 @@ public class Frame extends javax.swing.JFrame {
         ListPais.setResizable(false);
         ListPais.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton4.setText("Agregar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        ListPais.getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, 120, 60));
+        jButton11.setText("X");
+        ListPais.getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
+
+        jButton12.setText("Home");
+        ListPais.getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 40));
+
+        jScrollPane6.setViewportView(JTree_Paises);
+
+        ListPais.getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 330, 500));
 
         jLabel12.setFont(new java.awt.Font("DialogInput", 1, 48)); // NOI18N
         jLabel12.setText("Paises");
@@ -146,7 +346,7 @@ public class Frame extends javax.swing.JFrame {
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UN_emblem_gold.svg.png"))); // NOI18N
         jLabel13.setText("Nombre");
-        ListPais.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 290, 290));
+        ListPais.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 290, 290));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/f73ef9ec5882eab32771edb39399765f.jpg"))); // NOI18N
         ListPais.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 600));
@@ -163,7 +363,7 @@ public class Frame extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UN_emblem_gold.svg.png"))); // NOI18N
         jLabel5.setText("Nombre");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 290, 290));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 290, 290));
 
         Fondo.setBackground(new java.awt.Color(0, 102, 204));
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/f73ef9ec5882eab32771edb39399765f.jpg"))); // NOI18N
@@ -197,21 +397,13 @@ public class Frame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JCB_VocacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_VocacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_JCB_VocacionActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void JB_ColorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ColorMouseClicked
+        JB_Color.setForeground(JColorChooser.showDialog(this, "Elija el Color De la bandera", Color.WHITE));
+    }//GEN-LAST:event_JB_ColorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -252,7 +444,24 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JDialog AddPais;
     private javax.swing.JDialog AddPersona;
     private javax.swing.JLabel Fondo;
+    private javax.swing.ButtonGroup JBG_Covid;
+    private javax.swing.ButtonGroup JBG_Sexo;
+    private javax.swing.JButton JB_AddPaises;
+    private javax.swing.JButton JB_AddPersona;
+    private javax.swing.JButton JB_Color;
+    private javax.swing.JButton JB_Exit;
+    private javax.swing.JButton JB_Exit1;
+    private javax.swing.JButton JB_Exit2;
+    private javax.swing.JButton JB_Home;
+    private javax.swing.JButton JB_Home1;
+    private javax.swing.JButton JB_Home2;
+    private javax.swing.JComboBox<String> JCB_PersonaPais;
+    private javax.swing.JComboBox<String> JCB_Vocacion;
+    private com.toedter.calendar.JDateChooser JDC_Fecha;
+    private javax.swing.JFormattedTextField JFT_Edad;
     private javax.swing.JLabel JL_APerFondo;
+    private javax.swing.JList<String> JList_Hombres;
+    private javax.swing.JList<String> JList_Mujeres;
     private javax.swing.JMenuBar JMB_Frame;
     private javax.swing.JMenu JM_Paises;
     private javax.swing.JMenuItem JM_PaisesAdd;
@@ -260,25 +469,63 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JMenu JM_Personas;
     private javax.swing.JMenuItem JM_PersonasAdd;
     private javax.swing.JMenuItem JM_PersonasList;
+    private javax.swing.JPanel JPan_Hombres;
+    private javax.swing.JPanel JPan_Mujeres;
+    private javax.swing.JPanel JPan_Negativas;
+    private javax.swing.JPanel JPan_Positivas;
+    private javax.swing.JPanel JPan_Todas;
+    private javax.swing.JRadioButton JRB_Femenino;
+    private javax.swing.JRadioButton JRB_Masculino;
+    private javax.swing.JRadioButton JRB_Negativo;
+    private javax.swing.JRadioButton JRB_Positivo;
+    private javax.swing.JTextField JT_PaisesName;
+    private javax.swing.JTextField JT_PersonaApellido;
+    private javax.swing.JTextField JT_PersonaNombre;
+    private javax.swing.JTextField JT_himno;
+    private javax.swing.JTree JTree_Negativas;
+    private javax.swing.JTree JTree_Paises;
+    private javax.swing.JTree JTree_Positivas;
+    private javax.swing.JTree JTree_Todas;
     private javax.swing.JDialog ListPais;
     private javax.swing.JDialog ListPersona;
     private javax.swing.JLabel Titulo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private java.awt.Checkbox checkbox1;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     // End of variables declaration//GEN-END:variables
 }

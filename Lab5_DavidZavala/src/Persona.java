@@ -1,12 +1,13 @@
 public class Persona {
-    private String Nacionalidad, Nombre, Apellido, Genero, Vocacion, Titulo;
+    private String Nacionalidad, Nombre, Apellido, Genero, Vocacion;
     private int Edad;
+    private boolean Titulo;
     private boolean Contagiado;
 
     public Persona() {
     }
 
-    public Persona(String Nacionalidad, String Nombre, String Apellido, String Genero, String Vocacion, String Titulo, int Edad, boolean Contagiado) {
+    public Persona(String Nacionalidad, String Nombre, String Apellido, String Genero, String Vocacion, boolean Titulo, int Edad, boolean Contagiado) {
         this.Nacionalidad = Nacionalidad;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -57,11 +58,11 @@ public class Persona {
         this.Vocacion = Vocacion;
     }
 
-    public String getTitulo() {
+    public boolean getTitulo() {
         return Titulo;
     }
 
-    public void setTitulo(String Titulo) {
+    public void setTitulo(boolean Titulo) {
         this.Titulo = Titulo;
     }
 
