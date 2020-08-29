@@ -3,6 +3,9 @@ import java.awt.Color;
 import javax.swing.DefaultListModel;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -32,6 +35,8 @@ public class Frame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JBG_Sexo = new javax.swing.ButtonGroup();
+        JBG_Covid = new javax.swing.ButtonGroup();
         AddPersona = new javax.swing.JDialog();
         JT_PersonaNombre = new javax.swing.JTextField();
         JT_PersonaApellido = new javax.swing.JTextField();
@@ -58,6 +63,13 @@ public class Frame extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         JL_APerFondo = new javax.swing.JLabel();
+        JMB_Frame2 = new javax.swing.JMenuBar();
+        JM_Personas2 = new javax.swing.JMenu();
+        JM_PersonasList2 = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        JM_Paises2 = new javax.swing.JMenu();
+        JM_PaisesAdd2 = new javax.swing.JMenuItem();
+        JM_PaisesList2 = new javax.swing.JMenuItem();
         ListPersona = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         JPan_Mujeres = new javax.swing.JPanel();
@@ -66,27 +78,30 @@ public class Frame extends javax.swing.JFrame {
         JPan_Hombres = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         JList_Hombres = new javax.swing.JList<>();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        JList_Paises = new javax.swing.JList<>();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         JPan_Todas = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        JTree_Todas = new javax.swing.JTree();
+        JTree_Pais = new javax.swing.JTree();
         JPan_Positivas = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         JTree_Positivas = new javax.swing.JTree();
-        JPan_Negativas = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        JTree_Negativas = new javax.swing.JTree();
         JB_Home2 = new javax.swing.JButton();
         JB_Exit2 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        JMB_Frame3 = new javax.swing.JMenuBar();
+        JM_Personas3 = new javax.swing.JMenu();
+        JM_PersonasAdd3 = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        JM_Paises3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         AddPais = new javax.swing.JDialog();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
         JDC_Fecha = new com.toedter.calendar.JDateChooser();
         JT_PaisesName = new javax.swing.JTextField();
         JT_himno = new javax.swing.JTextField();
@@ -94,21 +109,29 @@ public class Frame extends javax.swing.JFrame {
         JB_AddPaises = new javax.swing.JButton();
         JB_Exit = new javax.swing.JButton();
         JB_Home = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        ListPais = new javax.swing.JDialog();
-        JB_Exit4 = new javax.swing.JButton();
-        JB_Home4 = new javax.swing.JButton();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        JList_Paises = new javax.swing.JList<>();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        JTree_Paises = new javax.swing.JTree();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        JBG_Sexo = new javax.swing.ButtonGroup();
-        JBG_Covid = new javax.swing.ButtonGroup();
+        JMB_Frame1 = new javax.swing.JMenuBar();
+        JM_Personas1 = new javax.swing.JMenu();
+        JM_PersonasAdd1 = new javax.swing.JMenuItem();
+        JM_PersonasList1 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        JM_Paises1 = new javax.swing.JMenu();
+        JM_PaisesList1 = new javax.swing.JMenuItem();
+        JPUM_Paises = new javax.swing.JPopupMenu();
+        JMRC_Paises = new javax.swing.JMenu();
+        JM_ModPai = new javax.swing.JMenuItem();
+        JM_DelPai = new javax.swing.JMenuItem();
+        JPUM_Personas = new javax.swing.JPopupMenu();
+        JMRC_Personas1 = new javax.swing.JMenu();
+        JM_AddPer = new javax.swing.JMenuItem();
+        JM_ModPer = new javax.swing.JMenuItem();
+        JM_DelPer = new javax.swing.JMenuItem();
         Titulo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
@@ -125,8 +148,8 @@ public class Frame extends javax.swing.JFrame {
         AddPersona.setResizable(false);
         AddPersona.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         AddPersona.getContentPane().add(JT_PersonaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 90, -1));
-        AddPersona.getContentPane().add(JT_PersonaApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 90, -1));
-        AddPersona.getContentPane().add(JT_PersonaNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 90, -1));
+        AddPersona.getContentPane().add(JT_PersonaApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 90, -1));
+        AddPersona.getContentPane().add(JT_PersonaNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 90, -1));
 
         try {
             JFT_Edad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
@@ -182,7 +205,7 @@ public class Frame extends javax.swing.JFrame {
                 JB_Exit1ActionPerformed(evt);
             }
         });
-        AddPersona.getContentPane().add(JB_Exit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
+        AddPersona.getContentPane().add(JB_Exit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 50, 40));
 
         jLabel8.setFont(new java.awt.Font("DialogInput", 1, 48)); // NOI18N
         jLabel8.setText("Persona");
@@ -222,6 +245,43 @@ public class Frame extends javax.swing.JFrame {
         JL_APerFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/f73ef9ec5882eab32771edb39399765f.jpg"))); // NOI18N
         AddPersona.getContentPane().add(JL_APerFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 600));
 
+        JMB_Frame2.setBorder(null);
+
+        JM_Personas2.setText("Personas");
+
+        JM_PersonasList2.setText("Archivo");
+        JM_PersonasList2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_PersonasList2ActionPerformed(evt);
+            }
+        });
+        JM_Personas2.add(JM_PersonasList2);
+        JM_Personas2.add(jSeparator3);
+
+        JMB_Frame2.add(JM_Personas2);
+
+        JM_Paises2.setText("Paises");
+
+        JM_PaisesAdd2.setText("Agregar");
+        JM_PaisesAdd2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_PaisesAdd2ActionPerformed(evt);
+            }
+        });
+        JM_Paises2.add(JM_PaisesAdd2);
+
+        JM_PaisesList2.setText("Archivo");
+        JM_PaisesList2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_PaisesList2ActionPerformed(evt);
+            }
+        });
+        JM_Paises2.add(JM_PaisesList2);
+
+        JMB_Frame2.add(JM_Paises2);
+
+        AddPersona.setJMenuBar(JMB_Frame2);
+
         ListPersona.setUndecorated(true);
         ListPersona.setResizable(false);
         ListPersona.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -231,7 +291,21 @@ public class Frame extends javax.swing.JFrame {
         JList_Mujeres.setModel(new DefaultListModel());
         jScrollPane5.setViewportView(JList_Mujeres);
 
-        JPan_Mujeres.add(jScrollPane5);
+        javax.swing.GroupLayout JPan_MujeresLayout = new javax.swing.GroupLayout(JPan_Mujeres);
+        JPan_Mujeres.setLayout(JPan_MujeresLayout);
+        JPan_MujeresLayout.setHorizontalGroup(
+            JPan_MujeresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPan_MujeresLayout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+        JPan_MujeresLayout.setVerticalGroup(
+            JPan_MujeresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPan_MujeresLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         jTabbedPane1.addTab("Mujeres", JPan_Mujeres);
 
@@ -240,19 +314,63 @@ public class Frame extends javax.swing.JFrame {
         JList_Hombres.setModel(new DefaultListModel());
         jScrollPane4.setViewportView(JList_Hombres);
 
-        JPan_Hombres.add(jScrollPane4);
+        javax.swing.GroupLayout JPan_HombresLayout = new javax.swing.GroupLayout(JPan_Hombres);
+        JPan_Hombres.setLayout(JPan_HombresLayout);
+        JPan_HombresLayout.setHorizontalGroup(
+            JPan_HombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPan_HombresLayout.createSequentialGroup()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        JPan_HombresLayout.setVerticalGroup(
+            JPan_HombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPan_HombresLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         jTabbedPane1.addTab("Hombres", JPan_Hombres);
 
-        ListPersona.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 650, 170));
+        JList_Paises.setModel(new DefaultListModel());
+        jScrollPane7.setViewportView(JList_Paises);
 
-        JTree_Todas.setPreferredSize(new java.awt.Dimension(350, 150));
-        jScrollPane1.setViewportView(JTree_Todas);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Paises", jPanel1);
+
+        ListPersona.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 360, 210));
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Paises");
+        JTree_Pais.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        JTree_Pais.setPreferredSize(new java.awt.Dimension(350, 150));
+        JTree_Pais.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTree_PaisMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(JTree_Pais);
 
         JPan_Todas.add(jScrollPane1);
 
-        jTabbedPane2.addTab("Todas", JPan_Todas);
+        jTabbedPane2.addTab("Paises", JPan_Todas);
 
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Pasies");
+        JTree_Positivas.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         JTree_Positivas.setPreferredSize(new java.awt.Dimension(350, 150));
         jScrollPane3.setViewportView(JTree_Positivas);
 
@@ -260,14 +378,7 @@ public class Frame extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Positivas", JPan_Positivas);
 
-        JTree_Negativas.setPreferredSize(new java.awt.Dimension(350, 150));
-        jScrollPane2.setViewportView(JTree_Negativas);
-
-        JPan_Negativas.add(jScrollPane2);
-
-        jTabbedPane2.addTab("Negativas", JPan_Negativas);
-
-        ListPersona.getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 360, 240));
+        ListPersona.getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 360, 240));
 
         JB_Home2.setText("Home");
         JB_Home2.addActionListener(new java.awt.event.ActionListener() {
@@ -283,15 +394,22 @@ public class Frame extends javax.swing.JFrame {
                 JB_Exit2ActionPerformed(evt);
             }
         });
-        ListPersona.getContentPane().add(JB_Exit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
+        ListPersona.getContentPane().add(JB_Exit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 50, 40));
 
-        jLabel9.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
-        jLabel9.setText("Pruebas");
-        ListPersona.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 100, 30));
+        jButton1.setText("Exportar Positivos");
+        ListPersona.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 200, -1));
+
+        jButton2.setText("Agregar Pais en Arbol");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        ListPersona.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 200, -1));
 
         jLabel26.setFont(new java.awt.Font("DialogInput", 1, 48)); // NOI18N
-        jLabel26.setText("Persona");
-        ListPersona.getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 220, 80));
+        jLabel26.setText("Archivos");
+        ListPersona.getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 240, 80));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UN_emblem_gold.svg.png"))); // NOI18N
         jLabel7.setText("Nombre");
@@ -300,21 +418,43 @@ public class Frame extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/f73ef9ec5882eab32771edb39399765f.jpg"))); // NOI18N
         ListPersona.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 600));
 
+        JMB_Frame3.setBorder(null);
+
+        JM_Personas3.setText("Personas");
+        JM_Personas3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_Personas3ActionPerformed(evt);
+            }
+        });
+
+        JM_PersonasAdd3.setText("Agregar");
+        JM_PersonasAdd3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_PersonasAdd3ActionPerformed(evt);
+            }
+        });
+        JM_Personas3.add(JM_PersonasAdd3);
+        JM_Personas3.add(jSeparator4);
+
+        JMB_Frame3.add(JM_Personas3);
+
+        JM_Paises3.setText("Paises");
+
+        jMenuItem1.setText("Agregar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        JM_Paises3.add(jMenuItem1);
+
+        JMB_Frame3.add(JM_Paises3);
+
+        ListPersona.setJMenuBar(JMB_Frame3);
+
         AddPais.setUndecorated(true);
         AddPais.setResizable(false);
         AddPais.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel21.setText("Himno Nacional");
-        AddPais.getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
-
-        jLabel22.setText("Nombre");
-        AddPais.getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
-
-        jLabel23.setText("Color de bandera");
-        AddPais.getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, -1, -1));
-
-        jLabel24.setText("Fecha de fundación");
-        AddPais.getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, -1));
         AddPais.getContentPane().add(JDC_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 150, -1));
         AddPais.getContentPane().add(JT_PaisesName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 90, -1));
         AddPais.getContentPane().add(JT_himno, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 90, -1));
@@ -341,7 +481,7 @@ public class Frame extends javax.swing.JFrame {
                 JB_ExitActionPerformed(evt);
             }
         });
-        AddPais.getContentPane().add(JB_Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
+        AddPais.getContentPane().add(JB_Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 50, 40));
 
         JB_Home.setText("Home");
         JB_Home.addActionListener(new java.awt.event.ActionListener() {
@@ -350,6 +490,18 @@ public class Frame extends javax.swing.JFrame {
             }
         });
         AddPais.getContentPane().add(JB_Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 40));
+
+        jLabel21.setText("Himno Nacional");
+        AddPais.getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+
+        jLabel22.setText("Nombre");
+        AddPais.getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
+
+        jLabel23.setText("Color de bandera");
+        AddPais.getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, -1, -1));
+
+        jLabel24.setText("Fecha de fundación");
+        AddPais.getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("DialogInput", 1, 48)); // NOI18N
         jLabel10.setText("Paises");
@@ -362,45 +514,91 @@ public class Frame extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/f73ef9ec5882eab32771edb39399765f.jpg"))); // NOI18N
         AddPais.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 600));
 
-        ListPais.setUndecorated(true);
-        ListPais.setResizable(false);
-        ListPais.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JMB_Frame1.setBorder(null);
 
-        JB_Exit4.setText("X");
-        JB_Exit4.addActionListener(new java.awt.event.ActionListener() {
+        JM_Personas1.setText("Personas");
+
+        JM_PersonasAdd1.setText("Agregar");
+        JM_PersonasAdd1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JB_Exit4ActionPerformed(evt);
+                JM_PersonasAdd1ActionPerformed(evt);
             }
         });
-        ListPais.getContentPane().add(JB_Exit4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
+        JM_Personas1.add(JM_PersonasAdd1);
 
-        JB_Home4.setText("Home");
-        JB_Home4.addActionListener(new java.awt.event.ActionListener() {
+        JM_PersonasList1.setText("Archivo");
+        JM_PersonasList1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JB_Home4ActionPerformed(evt);
+                JM_PersonasList1ActionPerformed(evt);
             }
         });
-        ListPais.getContentPane().add(JB_Home4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 40));
+        JM_Personas1.add(JM_PersonasList1);
+        JM_Personas1.add(jSeparator2);
 
-        JList_Paises.setModel(new DefaultListModel());
-        jScrollPane7.setViewportView(JList_Paises);
+        JMB_Frame1.add(JM_Personas1);
 
-        ListPais.getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 300, -1));
+        JM_Paises1.setText("Paises");
 
-        jScrollPane6.setViewportView(JTree_Paises);
+        JM_PaisesList1.setText("Archivo");
+        JM_PaisesList1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_PaisesList1ActionPerformed(evt);
+            }
+        });
+        JM_Paises1.add(JM_PaisesList1);
 
-        ListPais.getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 330, 500));
+        JMB_Frame1.add(JM_Paises1);
 
-        jLabel12.setFont(new java.awt.Font("DialogInput", 1, 48)); // NOI18N
-        jLabel12.setText("Paises");
-        ListPais.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 220, 80));
+        AddPais.setJMenuBar(JMB_Frame1);
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UN_emblem_gold.svg.png"))); // NOI18N
-        jLabel13.setText("Nombre");
-        ListPais.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 290, 290));
+        JMRC_Paises.setText("Paises\n");
+        JMRC_Paises.setActionCommand("Paises");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/f73ef9ec5882eab32771edb39399765f.jpg"))); // NOI18N
-        ListPais.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 600));
+        JM_ModPai.setText("Modificar");
+        JM_ModPai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_ModPaiActionPerformed(evt);
+            }
+        });
+        JMRC_Paises.add(JM_ModPai);
+
+        JM_DelPai.setText("Eliminar");
+        JM_DelPai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_DelPaiActionPerformed(evt);
+            }
+        });
+        JMRC_Paises.add(JM_DelPai);
+
+        JPUM_Paises.add(JMRC_Paises);
+
+        JMRC_Personas1.setText("jMenu1");
+
+        JM_AddPer.setText("jMenuItem2");
+        JM_AddPer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_AddPerActionPerformed(evt);
+            }
+        });
+        JMRC_Personas1.add(JM_AddPer);
+
+        JM_ModPer.setText("jMenuItem2");
+        JM_ModPer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_ModPerActionPerformed(evt);
+            }
+        });
+        JMRC_Personas1.add(JM_ModPer);
+
+        JM_DelPer.setText("jMenuItem2");
+        JM_DelPer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_DelPerActionPerformed(evt);
+            }
+        });
+        JMRC_Personas1.add(JM_DelPer);
+
+        JPUM_Personas.add(JMRC_Personas1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -502,9 +700,9 @@ public class Frame extends javax.swing.JFrame {
     }//GEN-LAST:event_JM_PaisesAddActionPerformed
 
     private void JM_PaisesListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PaisesListActionPerformed
-        ListPais.setVisible(true);
-        ListPais.pack();
-        ListPais.setLocationRelativeTo(this);
+        ListPersona.setVisible(true);
+        ListPersona.pack();
+        ListPersona.setLocationRelativeTo(this);
         this.setVisible(false);
     }//GEN-LAST:event_JM_PaisesListActionPerformed
 
@@ -529,13 +727,6 @@ public class Frame extends javax.swing.JFrame {
         AddPais.setVisible(false);
     }//GEN-LAST:event_JB_HomeActionPerformed
 
-    private void JB_Home4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_Home4ActionPerformed
-        this.setVisible(true);
-        this.pack();
-        this.setLocationRelativeTo(null);
-        ListPais.setVisible(false);
-    }//GEN-LAST:event_JB_Home4ActionPerformed
-
     private void JM_PersonasListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PersonasListActionPerformed
         ListPersona.setVisible(true);
         ListPersona.pack();
@@ -555,10 +746,15 @@ public class Frame extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_JB_ExitActionPerformed
 
-    private void JB_Exit4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_Exit4ActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_JB_Exit4ActionPerformed
     private boolean Contagio() {
+        boolean ret = false;
+        if (JRB_Positivo.isSelected()) {
+            ret = true;
+        }
+        return ret;
+    }
+
+    private boolean ContagioMod() {
         boolean ret = false;
         if (JRB_Positivo.isSelected()) {
             ret = true;
@@ -631,6 +827,201 @@ public class Frame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JB_AddPaisesActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (JList_Mujeres.getSelectedIndex() < 0 && JList_Hombres.getSelectedIndex() < 0) {
+            JOptionPane.showMessageDialog(this, "No hay nadie seleccionado.");
+        } else if (JList_Hombres.getSelectedIndex() >= 0 && JList_Hombres.getSelectedIndex() >= 0) {
+            JOptionPane.showMessageDialog(this, "Seleccione Solo una Persona.");
+        } else if (JList_Paises.getSelectedIndex() < 0) {
+            JOptionPane.showMessageDialog(this, "Seleccione un Pais");
+        } else if (JList_Mujeres.getSelectedIndex() >= 0 && JList_Paises.getSelectedIndex() >= 0) {
+            DefaultTreeModel TreeModel_Pais = (DefaultTreeModel) JTree_Pais.getModel();
+            DefaultMutableTreeNode root = (DefaultMutableTreeNode) TreeModel_Pais.getRoot();
+            DefaultListModel modeloLISTA1 = (DefaultListModel) JList_Paises.getModel();
+            String Pais;
+            Pais = ((Pais) modeloLISTA1.get(JList_Paises.getSelectedIndex())).getNombre();
+            DefaultListModel modeloLISTA = (DefaultListModel) JList_Mujeres.getModel();
+            String Nombre, Sexo;
+            Sexo = "Femenino";
+            Nombre = ((Persona) modeloLISTA.get(JList_Mujeres.getSelectedIndex())).getNombre();
+            boolean flag = true;
+            for (int i = 0; i < root.getChildCount(); i++) {
+                if (root.getChildAt(i).toString().equals(Pais)) {
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(Nombre);
+                    ((DefaultMutableTreeNode) root.getChildAt(i)).add(p);
+                    JOptionPane.showMessageDialog(this, "Nodo ya Creado");
+                }
+                flag = false;
+            }
+            if (flag == true) {
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode(Pais);
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(Nombre);
+                DefaultMutableTreeNode s = new DefaultMutableTreeNode(Sexo);
+                s.add(p);
+                n.add(s);
+                root.add(n);
+                JOptionPane.showMessageDialog(this, "Nuevo Nodo Creado");
+            }
+            TreeModel_Pais.reload();
+            JOptionPane.showMessageDialog(this, "Mujer creada en el arbol");
+        } else if (JList_Hombres.getSelectedIndex() >= 0 && JList_Paises.getSelectedIndex() >= 0) {
+            DefaultTreeModel TreeModel_Pais = (DefaultTreeModel) JTree_Pais.getModel();
+            DefaultMutableTreeNode root = (DefaultMutableTreeNode) TreeModel_Pais.getRoot();
+            DefaultListModel modeloLISTA1 = (DefaultListModel) JList_Paises.getModel();
+            String Pais;
+            Pais = ((Persona) modeloLISTA1.get(JList_Paises.getSelectedIndex())).getNombre();
+            DefaultListModel modeloLISTA = (DefaultListModel) JList_Hombres.getModel();
+            String Nombre, Sexo;
+            Nombre = ((Persona) modeloLISTA.get(JList_Hombres.getSelectedIndex())).getNombre();
+            Sexo = "Femenino";
+            boolean flag = true;
+            for (int i = 0; i < root.getChildCount(); i++) {
+                if (root.getChildAt(i).toString().equals(Pais)) {
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(Nombre);
+                    ((DefaultMutableTreeNode) root.getChildAt(i)).add(p);
+                    flag = false;
+                    JOptionPane.showMessageDialog(this, "Nodo ya Creado");
+                }
+            }
+            if (flag == true) {
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode(Pais);
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(Nombre);
+                DefaultMutableTreeNode s = new DefaultMutableTreeNode(Sexo);
+                s.add(p);
+                n.add(s);
+                root.add(n);
+                JOptionPane.showMessageDialog(this, "Nuevo Nodo Creado");
+            }
+            TreeModel_Pais.reload();
+            JOptionPane.showMessageDialog(this, "Hombre creado en el arbol");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void JM_PersonasAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PersonasAdd1ActionPerformed
+        AddPersona.setVisible(true);
+        AddPersona.pack();
+        AddPersona.setLocationRelativeTo(this);
+        AddPais.setVisible(false);
+
+    }//GEN-LAST:event_JM_PersonasAdd1ActionPerformed
+
+    private void JM_PersonasList1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PersonasList1ActionPerformed
+        ListPersona.setVisible(true);
+        ListPersona.pack();
+        ListPersona.setLocationRelativeTo(this);
+        AddPais.setVisible(false);
+
+    }//GEN-LAST:event_JM_PersonasList1ActionPerformed
+
+    private void JM_PaisesList1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PaisesList1ActionPerformed
+        ListPersona.setVisible(true);
+        ListPersona.pack();
+        ListPersona.setLocationRelativeTo(this);
+        AddPais.setVisible(false);
+    }//GEN-LAST:event_JM_PaisesList1ActionPerformed
+
+    private void JM_PersonasList2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PersonasList2ActionPerformed
+        ListPersona.setVisible(true);
+        ListPersona.pack();
+        ListPersona.setLocationRelativeTo(this);
+        AddPersona.setVisible(false);
+
+    }//GEN-LAST:event_JM_PersonasList2ActionPerformed
+
+    private void JM_PaisesAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PaisesAdd2ActionPerformed
+        AddPais.setVisible(true);
+        AddPais.pack();
+        AddPais.setLocationRelativeTo(this);
+        AddPersona.setVisible(false);
+    }//GEN-LAST:event_JM_PaisesAdd2ActionPerformed
+
+    private void JM_PaisesList2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PaisesList2ActionPerformed
+        ListPersona.setVisible(true);
+        ListPersona.pack();
+        ListPersona.setLocationRelativeTo(this);
+        AddPersona.setVisible(false);
+    }//GEN-LAST:event_JM_PaisesList2ActionPerformed
+
+    private void JM_PersonasAdd3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_PersonasAdd3ActionPerformed
+        AddPersona.setVisible(true);
+        AddPersona.pack();
+        AddPersona.setLocationRelativeTo(this);
+        ListPersona.setVisible(false);
+
+    }//GEN-LAST:event_JM_PersonasAdd3ActionPerformed
+
+    private void JM_Personas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_Personas3ActionPerformed
+
+    }//GEN-LAST:event_JM_Personas3ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        ListPersona.setVisible(false);
+        AddPais.setLocationRelativeTo(this);
+        AddPais.setVisible(true);
+        AddPais.pack();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void JM_AddPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_AddPerActionPerformed
+        AddPersona.setVisible(true);
+        AddPersona.pack();
+        AddPersona.setLocationRelativeTo(null);
+        ListPersona.setVisible(false);
+    }//GEN-LAST:event_JM_AddPerActionPerformed
+
+    private void JTree_PaisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTree_PaisMouseClicked
+        if (evt.isMetaDown()) {
+            int row = JTree_Pais.getClosestRowForLocation(evt.getX(), evt.getY());
+            JTree_Pais.setSelectionRow(row);
+            Object v1 = JTree_Pais.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+
+            if (nodo_seleccionado.getUserObject() instanceof Pais) {
+                pais_seleccionado = (Pais) nodo_seleccionado.getUserObject();
+                JPUM_Paises.show(evt.getComponent(), evt.getX(), evt.getY());
+            } else if (nodo_seleccionado.getUserObject() instanceof Persona) {
+                persona_seleccionada = (Persona) nodo_seleccionado.getUserObject();
+                JPUM_Personas.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+
+        }
+    }//GEN-LAST:event_JTree_PaisMouseClicked
+
+    private void JM_ModPaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_ModPaiActionPerformed
+        pais_seleccionado.setBandera(JColorChooser.showDialog(this, "Nuevo Color", Color.BLACK));
+        pais_seleccionado.setNombre(JOptionPane.showInputDialog(this, "Nombre"));
+    }//GEN-LAST:event_JM_ModPaiActionPerformed
+
+    private void JM_ModPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_ModPerActionPerformed
+        persona_seleccionada.setNombre(JOptionPane.showInputDialog(this, "Nombre:"));
+        persona_seleccionada.setApellido(JOptionPane.showInputDialog(this, "Apellido:"));
+        persona_seleccionada.setNacionalidad(JOptionPane.showInputDialog(this, "Nacionalidad:"));
+        persona_seleccionada.setEdad(Integer.parseInt(JOptionPane.showInputDialog(this, "Edad:")));
+    }//GEN-LAST:event_JM_ModPerActionPerformed
+
+    private void JM_DelPaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_DelPaiActionPerformed
+        try {
+            int response = JOptionPane.showConfirmDialog(this, "Seguro de Eliminar?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (response == JOptionPane.OK_OPTION) {
+                DefaultTreeModel m = (DefaultTreeModel) JTree_Pais.getModel();
+                m.removeNodeFromParent(nodo_seleccionado);
+                m.reload();
+            }
+        } catch (Exception e) {
+            System.out.println("Error.");
+        }
+
+    }//GEN-LAST:event_JM_DelPaiActionPerformed
+
+    private void JM_DelPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_DelPerActionPerformed
+        try {
+            DefaultTreeModel m = (DefaultTreeModel) JTree_Pais.getModel();
+            m.removeNodeFromParent((MutableTreeNode) persona_seleccionada);
+            m.reload();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error.");
+        }
+    }//GEN-LAST:event_JM_DelPerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -642,7 +1033,7 @@ public class Frame extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -678,11 +1069,9 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton JB_Exit;
     private javax.swing.JButton JB_Exit1;
     private javax.swing.JButton JB_Exit2;
-    private javax.swing.JButton JB_Exit4;
     private javax.swing.JButton JB_Home;
     private javax.swing.JButton JB_Home1;
     private javax.swing.JButton JB_Home2;
-    private javax.swing.JButton JB_Home4;
     private javax.swing.JComboBox<String> JCB_Vocacion;
     private java.awt.Checkbox JChBo_Titulo;
     private com.toedter.calendar.JDateChooser JDC_Fecha;
@@ -692,15 +1081,39 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JList<String> JList_Mujeres;
     private javax.swing.JList<String> JList_Paises;
     private javax.swing.JMenuBar JMB_Frame;
+    private javax.swing.JMenuBar JMB_Frame1;
+    private javax.swing.JMenuBar JMB_Frame2;
+    private javax.swing.JMenuBar JMB_Frame3;
+    private javax.swing.JMenu JMRC_Paises;
+    private javax.swing.JMenu JMRC_Personas1;
+    private javax.swing.JMenuItem JM_AddPer;
+    private javax.swing.JMenuItem JM_DelPai;
+    private javax.swing.JMenuItem JM_DelPer;
+    private javax.swing.JMenuItem JM_ModPai;
+    private javax.swing.JMenuItem JM_ModPer;
     private javax.swing.JMenu JM_Paises;
+    private javax.swing.JMenu JM_Paises1;
+    private javax.swing.JMenu JM_Paises2;
+    private javax.swing.JMenu JM_Paises3;
     private javax.swing.JMenuItem JM_PaisesAdd;
+    private javax.swing.JMenuItem JM_PaisesAdd2;
     private javax.swing.JMenuItem JM_PaisesList;
+    private javax.swing.JMenuItem JM_PaisesList1;
+    private javax.swing.JMenuItem JM_PaisesList2;
     private javax.swing.JMenu JM_Personas;
+    private javax.swing.JMenu JM_Personas1;
+    private javax.swing.JMenu JM_Personas2;
+    private javax.swing.JMenu JM_Personas3;
     private javax.swing.JMenuItem JM_PersonasAdd;
+    private javax.swing.JMenuItem JM_PersonasAdd1;
+    private javax.swing.JMenuItem JM_PersonasAdd3;
     private javax.swing.JMenuItem JM_PersonasList;
+    private javax.swing.JMenuItem JM_PersonasList1;
+    private javax.swing.JMenuItem JM_PersonasList2;
+    private javax.swing.JPopupMenu JPUM_Paises;
+    private javax.swing.JPopupMenu JPUM_Personas;
     private javax.swing.JPanel JPan_Hombres;
     private javax.swing.JPanel JPan_Mujeres;
-    private javax.swing.JPanel JPan_Negativas;
     private javax.swing.JPanel JPan_Positivas;
     private javax.swing.JPanel JPan_Todas;
     private javax.swing.JRadioButton JRB_Femenino;
@@ -712,18 +1125,15 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JTextField JT_PersonaNacionalidad;
     private javax.swing.JTextField JT_PersonaNombre;
     private javax.swing.JTextField JT_himno;
-    private javax.swing.JTree JTree_Negativas;
-    private javax.swing.JTree JTree_Paises;
+    private javax.swing.JTree JTree_Pais;
     private javax.swing.JTree JTree_Positivas;
-    private javax.swing.JTree JTree_Todas;
-    private javax.swing.JDialog ListPais;
     private javax.swing.JDialog ListPersona;
     private javax.swing.JLabel Titulo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -739,21 +1149,25 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     // End of variables declaration//GEN-END:variables
+    DefaultMutableTreeNode nodo_seleccionado;
+    Persona persona_seleccionada;
+    Pais pais_seleccionado;
 }

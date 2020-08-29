@@ -93,7 +93,7 @@ public class Persona {
     
     @Override
     public String toString() {
-        return Nombre +" "+ Apellido + ", " + Edad +" años de edad, Genero:" + Genero + ", resultó: " + StringContagiado(Contagiado) + "para la prueba del Covid-19}";
+        return Nombre +" "+ Apellido;
     }
   
      
